@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     var newDiv = document.createElement('div');
     //give it some style
     newDiv.setAttribute("id", "navigation-icons-div")
-    newDiv.setAttribute("style", "height:100%; width:100%; z-index:111111111111; position:fixed; top:0; left:0;" );
+    newDiv.setAttribute("style", "height:100%; width:100%; z-index:111111111111; position:fixed; top:0; left:0; text-align: center;" );
     //inject div into body of webpage
     document.body.appendChild(newDiv);
 
@@ -32,7 +32,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
       var navIcon = document.createElement('span');
       //applying style
       navIcon.setAttribute("class", "navIcon")
-      var style = "background-color:blue; height:15px; width:15px; font-size:10px; z-index:1111111111115656; color:white; position: absolute; top:"+newTop+"px; left:"+newLeft+"px;";
+      var style = "background-color:blue; border-radius:3px; height:15px; width:15px; font-size:10px; z-index:1111111111115656; color:white; position: absolute; top:"+newTop+"px; left:"+newLeft+"px;";
       navIcon.setAttribute("style", style);
 
       //random string and assigning it to nav icon
@@ -46,7 +46,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
       //injecting each span into created div
       newDiv.appendChild(navIcon);
     }
-    
+
     //send response to background.js allerting success
     sendResponse({result: "success"});
   }
