@@ -16,3 +16,13 @@
 .logoImg{
   width: 200px;
 }
+
+.navIcon{
+  background-color:blue;
+  height:15px;
+  width:15px;
+  font-size:10px;
+  z-index:1111111111115656;
+  color:white;
+  position: absolute;
+}
