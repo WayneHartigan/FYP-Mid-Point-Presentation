@@ -52,3 +52,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   getSpeech();
 }, false);
+
+chrome.runtime.onInstalled.addListener(function (object) {
+    chrome.tabs.create({url: "chrome-extension://fdbafhacfnhmcckdmepacejfkieiocpb/index.html"}, function (tab) {
+      window.onload = function permission(){
+        navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+        .then((mediaStream) => {
+        //in promise will be triggered user permission request
+        })
+        .catch((error) => {
+          //manage error
+        });
+      }
+    });
+});

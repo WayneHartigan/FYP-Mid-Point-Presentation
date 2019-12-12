@@ -1,10 +1,4 @@
-window.onload = function permission(){
-  navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-  .then((mediaStream) => {
-  })
-  .catch((error) => {
-  });
-}
+
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
   if (request.command == 'newDom'){
