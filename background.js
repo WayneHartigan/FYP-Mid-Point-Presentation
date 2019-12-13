@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var speechRecognitionList = new SpeechGrammarList();
     speechRecognitionList.addFromString(grammar, 1);
     recognition.grammars = speechRecognitionList;
-    recognition.lang = 'en-GB';
+    recognition.lang = 'en-US';
     recognition.interimResults = false;
     recognition.continuous = true;
 
@@ -29,12 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
         catch (e){
           console.log("No voice picked up")
         }
-        if (command.toLowerCase().includes('hey computer')){
+        if (command.toLowerCase().includes('navigation')){
           sendMessagetoContext("newDom");
         }
         else if (command.toLowerCase().includes('take note')){
           var note = command.split("take note").pop();
           alert(note);
+        }
+        else if (command.toLowerCase().includes('cancel')){
+          sendMessagetoContext("cancelDom");
         }
     };
     recognition.onend = function(event) {

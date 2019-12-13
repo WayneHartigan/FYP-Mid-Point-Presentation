@@ -1,5 +1,3 @@
-
-
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
   if (request.command == 'newDom'){
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -26,7 +24,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
       var navIcon = document.createElement('span');
       //applying style
       navIcon.setAttribute("class", "navIcon")
-      var style = "background-color:blue; border-radius:3px; height:15px; width:15px; font-size:10px; z-index:1111111111115656; color:white; position: absolute; top:"+newTop+"px; left:"+newLeft+"px;";
+      var style = "background-color:blue; border-radius:3px; height:20px; width:20px; font-style:bold; font-size:10px; z-index:1111111111115656; color:white; position: absolute; top:"+newTop+"px; left:"+newLeft+"px;";
       navIcon.setAttribute("style", style);
 
       //random string and assigning it to nav icon
@@ -42,25 +40,28 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     }
 
     //send response to background.js allerting success
-    sendResponse({result: "success"});
+    sendResponse({result: "Nav Icons added successfully"});
+  }
+  else if (request.command == 'cancelDom'){
+    removeDom();
+    sendResponse({result: "Nav Icons removed successfully"});
   }
 });
 
-window.addEventListener('scroll', function(e) {
+function removeDom(){
   try{
     document.getElementById("navigation-icons-div").remove();
   }
   catch (f){
     //do nothing
   }
+}
+
+window.addEventListener('scroll', function(e) {
+  removeDom();
 });
 window.addEventListener('click', function(e) {
-  try{
-    document.getElementById("navigation-icons-div").remove();
-  }
-  catch (f){
-    //do nothing
-  }
+  removeDom();
 });
 
 //chrome-extension://fdbafhacfnhmcckdmepacejfkieiocpb/index.html
