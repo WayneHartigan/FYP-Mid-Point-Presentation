@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
       var navIcon = document.createElement('span');
       //applying style
       navIcon.setAttribute("class", "navIcon")
-      var style = "background-color:blue; border-radius:3px; height:20px; width:20px; font-style:bold; font-size:10px; z-index:1111111111115656; color:white; position: absolute; top:"+newTop+"px; left:"+newLeft+"px;";
+      var style = "background-color:blue; border-radius:3px; height:22px; width:22px; font-style:bold; font-size:15px; z-index:1111111111115656; color:white; position: absolute; top:"+newTop+"px; left:"+newLeft+"px;";
       navIcon.setAttribute("style", style);
 
       //random string and assigning it to nav icon
